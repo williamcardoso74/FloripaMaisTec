@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App SaveCollege</title>
+  </head>
+  <body>
+    <p>App SaveCollege - Dados dos Alunos</p>
+    <p>Exercício 03</p>
+
+    <script>
+      var aluno = [
+        {
+          nome: "José",
+          altura: "1,80m",
+          idade: 18,
+          sexo: "masculino",
+          sala: 101,
+          matematica: 8,
+        },
+
+        {
+          nome: "Maria",
+          altura: "1,75m",
+          idade: 16,
+          sexo: "feminino",
+          sala: 101,
+          matematica: 6,
+        },
+
+        {
+          nome: "Fatima",
+          altura: "1,64m",
+          idade: 15,
+          sexo: "feminino",
+          sala: 101,
+          matematica: 5,
+        },
+
+        {
+          nome: "João",
+          altura: "1,70m",
+          idade: 17,
+          sexo: "masculino",
+          sala: 101,
+          matematica: 6,
+        },
+
+        {
+          nome: "Pedro",
+          altura: "1,90m",
+          idade: 19,
+          sexo: "masculino",
+          sala: 101,
+          matematica: 9,
+        },
+      ];
+
+      /* var mediaMatematica =
+          (aluno[0].matematica +
+            aluno[1].matematica +
+            aluno[2].matematica +
+            aluno[3].matematica +
+            aluno[4].matematica) /
+          5;
+
+        console.log(mediaMatematica); */
+
+      function professora(estudante, nota) {
+        if (nota > 7) {
+          return `${estudante} foi aprovado`;
+        } else {
+          return `${estudante} foi reprovado`;
+        }
+      }
+
+      const limite = aluno.length;
+      for (i = 0; i < limite; i++) {
+        console.log(professora(aluno[i].nome, aluno[i].matematica));
+      }
+
+      /* console.log(professora(aluno[0].nome, aluno[0].matematica));
+      console.log(professora(aluno[1].nome, aluno[1].matematica));
+      console.log(professora(aluno[2].nome, aluno[2].matematica));
+      console.log(professora(aluno[3].nome, aluno[3].matematica));
+      console.log(professora(aluno[4].nome, aluno[4].matematica)); */
+    </script>
+  </body>
+</html>
