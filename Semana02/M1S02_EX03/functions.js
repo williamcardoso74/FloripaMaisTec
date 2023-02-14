@@ -5,10 +5,6 @@ var user = {
   password: '1234'
 }
 
-let login = document.getElementById('login');
-let username = document.getElementById("user");
-let password = document.getElementById("senha");
-
 /* const handleChangeUsername = (event) => {user.username=event.target.value}
 const handleChangePassword = (event) => {user.password =event.target.value}
 
@@ -19,14 +15,18 @@ password.addEventListener('change',handleChangePassword) */
 
 function clicou() {
 
-  if (username.value == user.username.value && password.value == user.password.value) {
+  const login = document.getElementById('login');
+  const username = document.getElementById("user");
+  const password = document.getElementById("senha");
+
+  if (username.value == user.username && password.value == user.password) {
         
       localStorage.setItem("userLocal", username.value);
       localStorage.setItem("senhaLocal", password.value);
       localStorage.estaLogado = true;
       alert("Usuário autenticado e dados salvos no LocalStorage!")
       // isLogged();
-      //location.href = "./logout.html";
+      location.href = "./logout.html";
           
     } else {
         
@@ -42,15 +42,16 @@ function isLogged() {
 
   if (localStorage.estaLogado) {
 
-    // alert("Usuário Deslogado com sucesso!");
+    alert("Usuário Deslogado com sucesso!");
     localStorage.removeItem("userLocal","senhaLocal");
     localStorage.setItem("estaLogado",false);
-    // location.href = "./index.html"
+    location.href = "./index.html"
 
   } else {
 
     alert("Usuário não existe! Faça o login novamente!")
-    // location.href = "./login.html";
+    // como limpar as variavéis usuario e senha?
+    location.href = "./login.html";
 
   }
 }
