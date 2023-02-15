@@ -80,11 +80,32 @@ console.log(verdadeirosAprovados); */
 //
 
 // TESTAR ARRAY
-const numeros = [1,2,3,4,5,6,7,8,9]
+/* const numeros = [1,2,3,4,5,6,7,8,9]
 
 console.log(numeros.every( (num) => {
     return num < 40
-}))
+})) */
+
+
+
+//
+
+// REDUCE ARRAY
+
+const carteiras = [29.55,41.22,33.54,12.12];
+
+const carteiraTotal = carteiras.reduce((acc, valorAtual, indiceAtual, array) => {
+    acc += valorAtual;
+    if(indiceAtual === array.length - 1) {
+        return acc / array.length;
+    } else {
+        return acc;
+    }
+    }
+);
+console.log(carteiraTotal)
+
+
 
 
 
