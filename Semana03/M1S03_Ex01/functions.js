@@ -1,8 +1,7 @@
-console.log('Hello Array')
+console.log('Hello Array');
 
-// const stringJson = JSON.parse(users.json);
-
-const usersJson = [
+const stringJson = JSON.parse (
+[
     {
         "name": "Scenic Stream",
         "username": "Eladio66",
@@ -65,7 +64,6 @@ const usersJson = [
         "updated": "June 13, 2022",
         "coords": "81.8303 33.4350"
       },
-      
       {
         "name": "Orange Shady Footpath",
         "username": "Jarvis_Hackett",
@@ -91,11 +89,14 @@ const usersJson = [
         "created": "August 27, 2022",
         "updated": "November 8, 2022",
         "coords": "-74.4389 146.7820"
-      }];
+      }
+    ],
+);
 
-const stringJson = JSON.parse(usersJson);
 
 for (i = 0; i <= stringJson.length; i++) {
     console.log(stringJson[i].username);
 };
+
+
 
