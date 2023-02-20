@@ -1,51 +1,104 @@
-
 // usar reduce em array - Aula 01 - Semana 03
 
-var ePreco;
+let preco = prompt("Qual o valor?");
+
+console.log(`Valor do produto R$: ${preco}`);
+
+let total = 0;
+total = total + preco;
+
+while (preco != 0) {
+  
+  let nextPreco = prompt("Digite o próximo valor ou 0 para parar");
+  let price = parseFloat(nextPreco);
+
+  if (price === 0) {
+    break;
+  };
+  
+  total += price;
+  console.log(`Valor do produto R$ ${price}`)
+};
+
+alert(`Total: R$ ${total}`);
+console.log(`Total: R$ ${total}`);
+
+while (true) {
+
+  let pagamentoRecebido = prompt("Valor do Pagamento: ");
+  let pagamento = parseFloat(pagamentoRecebido);
+
+  if (pagamento == 0 || pagamento < total) {
+    alert("Pagamento Insuficiente!");
+    console.log(`O valor recebido foi R$ ${pagamento}`)
+    continue;
+  }
+
+  if (pagamento > total) {
+    let troco = pagamento - total;
+    alert("Troco: R$ "+ troco.toFixed(2));
+    console.log(`O valor recebido foi R$ ${pagamento}`);
+    console.log(`Troco R$ foi de ${troco.toFixed(2)}`);
+    continue;
+
+  }
+
+  break;
+
+};
+
+/* var ePreco;
 var eSoma;
 var total;
 
-let preco = document.getElementById("preco").value;
-let somar = document.getElementById("somar").value;
+function calcular() {
 
-/* const changePreco = (event) => {ePreco.value=event.target.value}
-const changeSoma = (event) => {eSoma.value=event.target.value}
+    let preco = document.getElementById("preco");
+    let somar = document.getElementById("somar");
     
-somar.addEventListener('click',calcular)
-preco.addEventListener('change',changePreco) */
+    const changePreco = (event) => {
+      ePreco = event.target.value;
+    };
+    const changeSoma = (event) => {
+      eSoma = event.target.value;
+    };
+    
+    somar.addEventListener("click", calcular);
+    preco.addEventListener("change", changePreco);
 
-function calcular () {
+    if (preco.value > 0) {
 
-    // fluxo que se repete
-    // teste se acabou de somar itens
-    // se não acabou o fluxo continua
-    // se acabou o fluxo acaba
-    // no final digita o dinheiro
-    // subtrai o soma do caixa com o dinheiro
-    // e da o troco
+      console.log("preço " + preco.value);
+      total = +preco.value;
+      
+    } else {
 
-    // usar fluxo while
+      var pagamento = prompt("Valor do Pagamento? ");
+      var troco = pagamento - total;
+
+      console.log(`O total foi de ${total}`);
+      console.log(`Seu pagamento foi de ${pagamento}`);
+      console.log(`Seu troco é de ${troco}`);
+
+    };
+  
+}; */
 
 
-    /* if ( preco.value == 0) {
+
+// fluxo que se repete
+// teste se acabou de somar itens
+// se não acabou o fluxo continua
+// se acabou o fluxo acaba
+// no final digita o dinheiro
+// subtrai o soma do caixa com o dinheiro
+// e da o troco
+
+// usar fluxo while
+
+/* if ( preco.value == 0) {
       
     } else {
       
 
     } */
-
-
-    while ( preco.value != 0) {
-        
-        console.log("preço " + preco);
-        total =+ preco;
-    };
-
-    let pagamento = Number(window.prompt("Valor do Pagamento? "));
-    let troco = pagamento - total;
-    console.log('O seu troco é ' + troco);
-
-    
-
-}
-

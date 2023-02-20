@@ -10,7 +10,7 @@ function clicou () {
     setInterval(() => {
     
     const d1 = new Date();
-    const d2 = dataAniv;
+    const d2 = dataAniv.value;
     
 
     const diffInMs = new Date (d2) - new Date(d1);
@@ -27,7 +27,7 @@ function clicou () {
 
     } else {
 
-        console.log('Faltam ' + diffInDays + ' para seu aniversário');
+        console.log('Faltam ' + Math.ceil(diffInDays) + ' dias o para seu aniversário');
 
     };
     }, 1000 * 3);
