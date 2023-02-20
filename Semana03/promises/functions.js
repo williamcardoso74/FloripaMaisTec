@@ -1,6 +1,8 @@
 console.log("Hello World");
 
-console.log("executando uma promessa");
+// FUNÇÃO PROMISE
+
+/* console.log("executando uma promessa");
 const somaDoisNumeros = (a, b) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -39,4 +41,19 @@ somaDoisNumeros(5, 1)
   })
   .finally(() => {
     console.log("terminou");
-  });
+  }); */
+
+
+
+
+  // FUNÇÃO ASYNC
+
+  async function login (user, password) {
+    try{
+      const verificaUser = new Promise(() => {})
+    }
+    catch{
+
+    }
+
+  }

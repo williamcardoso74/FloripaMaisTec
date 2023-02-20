@@ -18,7 +18,16 @@ msg.addEventListener('change',changeMsg);
 
 function enviar() {
 
-    location.href = "./logout.html";
-    href = https://api.whatsapp.com/send?phone=SeuN%C3%BAmero&text=SuaMensagem
+    if (tel.value != "" && msg.value != "") {
+    
+        const msgTemp = msg.value.replace(" ","%20");
+        const telTemp = tel.value;
+        const urlTemp = "https://api.whatsapp.com/send?phone="+telTemp+"&text="+msgTemp;
+        env.disabled = false;
+        window.open(urlTemp);
 
+    } else {
+        alert("Preencha todos os campos!");
+    }
+ 
 }
