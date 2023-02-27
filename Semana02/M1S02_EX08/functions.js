@@ -1,52 +1,6 @@
 // usar reduce em array - Aula 01 - Semana 03
 // SOLUÇÃO DO DANIEL
 
-let preco = prompt("Qual o valor?");
-
-console.log(`Valor do produto R$: ${preco}`);
-
-let total = 0;
-total = total + preco;
-
-while (preco != 0) {
-  
-  let nextPreco = prompt("Digite o próximo valor ou 0 para parar");
-  let price = parseFloat(nextPreco);
-
-  if (price === 0) {
-    break;
-  };
-  
-  total += price;
-  console.log(`Valor do produto R$ ${price}`)
-};
-
-alert(`Total: R$ ${total}`);
-console.log(`Total: R$ ${total}`);
-
-while (true) {
-
-  let pagamentoRecebido = prompt("Valor do Pagamento: ");
-  let pagamento = parseFloat(pagamentoRecebido);
-
-  if (pagamento == 0 || pagamento < total) {
-    alert("Pagamento Insuficiente!");
-    console.log(`O valor recebido foi R$ ${pagamento}`)
-    continue;
-  }
-
-  if (pagamento > total) {
-    let troco = pagamento - total;
-    alert("Troco: R$ "+ troco.toFixed(2));
-    console.log(`O valor recebido foi R$ ${pagamento}`);
-    console.log(`Troco R$ foi de ${troco.toFixed(2)}`);
-    continue;
-
-  }
-
-  break;
-
-};
 
 /* var ePreco;
 var eSoma;
