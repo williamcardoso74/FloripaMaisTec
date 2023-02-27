@@ -72,14 +72,15 @@ class CaixaRegistradora {
       console.log(codigoBarraItem);
 
       let existeCodigo = estoque.find(p => {
-        p.codigoBarra === Number(codigoBarraItem)
+        return p.codigoBarra === Number(codigoBarraItem)
       });
 
       console.log(existeCodigo);
 
-      if (existeCodigo && Number(codigoBarraItem)!=0) {
+      let precoItem;
+        if (existeCodigo && Number(codigoBarraItem)!=0) {
         console.log(existeCodigo);
-        const precoItem = estoque.find((prod) => {
+        precoItem = estoque.find((prod) => {
           return prod.preco;
           console.log(precoItem);
         });
