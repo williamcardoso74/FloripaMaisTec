@@ -73,7 +73,7 @@ class ContaPoupanca extends Conta {
     
         atualizarJuros() {
             
-            const aplicação = Number(prompt("Qual aplicação: 1.Normal ou 2.Premium?"));
+            const aplicacao = Number(prompt("Qual aplicação de Poupança: \n 1.Normal ou 2.Premium?"));
 
             if (aplicacao === 1) {
                 this._indice = 0.7;
