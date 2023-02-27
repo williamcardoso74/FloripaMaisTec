@@ -1,4 +1,5 @@
 // usar reduce em array - Aula 01 - Semana 03
+// SOLUÇÃO DO DANIEL
 
 let preco = prompt("Qual o valor?");
 
@@ -102,3 +103,35 @@ function calcular() {
       
 
     } */
+
+// SOLUÇÃO 
+
+    alert("seja bem vindo ao padariaTech");
+    let start = true;
+    let produtos = [];
+    let total = 0;
+    while (start) {
+      const addProduct = prompt("você quer adicionar um produto? - sim:1, nao:2");
+      if (addProduct == 1) {
+        const nome = prompt("Digite o nome do produto");
+        const preco = prompt("Digite o preço do produto");
+        const quantidade = prompt("Digite a quantidade do produto");
+        const produto = {
+          nome: nome,
+          preco: Number(preco),
+          quantidade: Number(quantidade),
+        };
+        produtos.push(produto);
+      } else {
+        produtos.forEach((produto) => {
+          total = total + produto.preco * produto.quantidade;
+        });
+        start = false;
+        alert(O valor total do seu pedido é:${total});
+        let dinheiro = Number(prompt("Digite o dinheiro"));
+        alert("Seu troco é "+(dinheiro-total));
+        alert("Obrigado por comprar na padariaTech");
+        console.log(produtos);
+      }
+    }
+    
