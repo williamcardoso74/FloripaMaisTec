@@ -1,13 +1,13 @@
 console.log("Hello World");
 
 let estoque = [
-  { codigoBarra: 1111, preco: 2, produto: "arroz" },
+  { codigoBarra: 1111, preco: 2, produto: "arroz", quantidade: 100 },
 
-  { codigoBarra: 2222, preco: 4, produto: "feijao" },
+  { codigoBarra: 2222, preco: 4, produto: "feijao", quantidade: 100 },
 
-  { codigoBarra: 3333, preco: 3, produto: "açucar" },
+  { codigoBarra: 3333, preco: 3, produto: "açucar", quantidade: 100 },
 
-  { codigoBarra: 4444, preco: 5, produto: "leite" },
+  { codigoBarra: 4444, preco: 5, produto: "leite", quantidade: 100 },
 ];
 
 
@@ -22,11 +22,13 @@ function addProdutos() {
     const addCodigoBarra = prompt("Qual é o código do produto?");
     const addPreco = prompt("Qual é o preço do produto?");
     const addProduto = prompt("Qual é o nome do produto?");
+    const addQuantidade = prompt("Quantidade a adicionar no estoque?");
 
     const itemEstoque = {
       codigoBarra: addCodigoBarra,
       preco: Number(addPreco),
       produto: addProduto,
+      quantidade: addQuantidade,
     };
     estoque.push(itemEstoque);
   } else {
@@ -72,25 +74,15 @@ class CaixaRegistradora {
       let codigoBarraItem = prompt(
         "Digite o código para comprar ou 0 para terminar:"
       );
-      //console.log(codigoBarraItem);
-
+      
       let existeCodigo = estoque.find((p) => {
         return p.codigoBarra === Number(codigoBarraItem);
       });
 
-      //console.log(existeCodigo);
-      
-
       if (existeCodigo) {
         
         let precoItem = existeCodigo.preco;
-
-        /* precoItem = estoque.find((prod) => {
-          return prod.preco;
-        });
- */
-        //console.log(precoItem);
-        
+       
         const quantidadeItem = Number(prompt("Qual é a quantidade?"));
         const compraItem = {
           itemCodigoBarra: Number(codigoBarraItem),
@@ -99,7 +91,6 @@ class CaixaRegistradora {
         };
 
         compraFinal.push(compraItem);
-        //console.log(compraFinal);
 
       } else if (Number(codigoBarraItem) == 0) {
 
@@ -117,6 +108,7 @@ class CaixaRegistradora {
       };
       
     };
+    console.log(compraFinal);
     console.log(`Total da compra DE ${this._cliente} foi ${total}`);
     
     let troco = 0;
@@ -125,15 +117,24 @@ class CaixaRegistradora {
     if (total <= pagamento) {
       troco = pagamento - total;
       console.log(`Seu troco é de ${troco}`)
-      //return troco;
 
     } else {
       console.log('Seu pagamento não é suficiente!')
     }
 
+    const atualizaEstoque = estoque.forEach((prod) => {
+      
+      if(prod.includes(compraFinal.itemQuantidade)) {
+          return prod.quantidade = prod.quantidade - compraFinal.itemQuantidade
+        }
+    }
+    )
+
+    console.log(estoque);
+
   }
   
-  fecharConta() {
+  /* fecharConta() {
     
     const total = compraFinal.forEach((item) => {return total = total + item.subTotal});
 
@@ -149,7 +150,7 @@ class CaixaRegistradora {
       alert('Seu pagamento não é suficiente!')
     }
 
-  }
+  } */
 
 };
 
@@ -159,5 +160,4 @@ console.log(atendimento1.informaCliente());
 let compra1 = atendimento1.compraCliente();
 console.log(compra1);
 
-/* let troco1 = atendimento1.fecharConta();
-console.log(troco1); */
+

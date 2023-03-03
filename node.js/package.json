@@ -1,0 +1,13 @@
+{
+  "name": "validar-node",
+  "version": "1.0.0",
+  "description": "Aplicação de dados estáticos",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" "echo \"No have application\" && exit 1"
+  },
+  "keywords": ["JavaScript","JS"],
+  "author": "williamcardoso74",
+  "license": "ISC"
+}
