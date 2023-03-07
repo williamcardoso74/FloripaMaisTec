@@ -30,10 +30,14 @@ function buscarVogal(texto) {
 
             }
         }
-
+    
+    if (contador === 0) {
+        console.log("Esta palavra não contem vogais!");
+    } else {
     console.log(listaVogais);
     console.log(`O número total é de ${contador} vogais`);
+    }
     
 }
 
-buscarVogal("testando");
+buscarVogal("palavra");
