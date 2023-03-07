@@ -2,21 +2,21 @@ function deletarDuplicados() {
 
     const lista = ["Pedro", "José", "Aderbal", "Danilo", "Luisa", "Vitória", "Luis", "Danilo", "José"];
   
-    let nomeDuplicado;
-    const novaLista = [];
+    let nomeDuplicado = [];
+    let novaLista = [];
+    let nome;
 
     for (let i=0; i < lista.length ; i++) {
 
-        nome1 = lista[i];
-        while ()
-        const nome1 = lista[i];
-        nomeDuplicado = lista.filter(n => 
-
-
+        let nome = lista[i]
+        if(novaLista.includes(nome)) {
+            nomeDuplicado.push(nome)
+        } else {
+            novaLista.push(nome);
+        }
     }
-    
+    console.log(nomeDuplicado)
+    console.log(novaLista);
 }
 
 deletarDuplicados();
-
-// push, includes ou filter
