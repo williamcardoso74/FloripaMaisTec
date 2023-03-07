@@ -39,4 +39,4 @@ console.log(novaLista);
 
 }
 
-addNomes(123,456,"Wendel");
+addNomes("Pedro",123,"Wendel");
