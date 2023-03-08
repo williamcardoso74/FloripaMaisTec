@@ -133,7 +133,7 @@ class CaixaRegistradora {
 
   }
   
-  fecharConta() {
+ /*  fecharConta() {
     
     const total = compraFinal.forEach((item) => {return total = total + item.subTotal});
 
@@ -150,7 +150,7 @@ class CaixaRegistradora {
     }
 
   }
-
+ */
 };
 
 let atendimento1 = new CaixaRegistradora(1111, 10, "José");
