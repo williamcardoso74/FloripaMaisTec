@@ -10,7 +10,7 @@ app.get('/:nome', (req, res)=> {
 
 
 app.post('/enviaObjeto', (req,res)=>{
-    const objeto = request.body;
+    const objeto = req.body;
     res.json(objeto);
     console.log(`Arquivo Json enviado com sucesso ${JSON.stringify(objeto)}`);
 })

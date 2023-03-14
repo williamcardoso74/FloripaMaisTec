@@ -3,6 +3,9 @@ const app = express();
 
 app.use(express.json());
 
+const routers = require('../sources/routes/user-route');
+app.use(routers);
+
 // Verbo ou método HTTP GET
 
 app.get('/list', (req, res)=>{
@@ -15,7 +18,7 @@ app.get('/list', (req, res)=>{
 app.get('/get-user/:id/:nome', (req, res)=>{
     console.log(req.params);
     res.send(":id = " + req.params.id + "     :nome = "+ req.params.nome);
-})
+});
 
 
 // Verbo ou método HTTP POST
@@ -23,7 +26,7 @@ app.get('/get-user/:id/:nome', (req, res)=>{
 app.post('/create', (req, res)=>{
     console.log(req.body);
     res.send({mensagem:"Usuário criado com sucesso!"});
-})
+});
 
 // Verbo ou método HTTP DELETE
 
@@ -36,13 +39,13 @@ app.delete("/deletedUser/:id", (req, res)=> {
     } */
 
     // simulando um array vindo do banco de dados
-    let users = [
+    /* let users = [
         { id: 1, nome: "João"},
         { id: 2, nome: "Gabriel"},
         { id: 3, nome: "Pedro"}
     ];
-
-    res.json(users);
+    */
+   res.json(users);
 
     // buscando se o usuario existe no banco de dados
     let achou = users.filter((usuario) => {
@@ -56,6 +59,8 @@ app.delete("/deletedUser/:id", (req, res)=> {
     }
 
 });
+
+
 
 app.listen(3333, ()=>{
     console.log("Servidor Online")
