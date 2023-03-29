@@ -108,6 +108,7 @@ class CaixaRegistradora {
       };
       
     };
+
     console.log(compraFinal);
     console.log(`Total da compra DE ${this._cliente} foi ${total}`);
     
@@ -122,14 +123,23 @@ class CaixaRegistradora {
       console.log('Seu pagamento não é suficiente!')
     }
 
-    const atualizaEstoque = estoque.forEach((prod) => {
+    /* const atualizaEstoque = estoque.forEach((prod) => {
       
       if(prod.includes(compraFinal.itemQuantidade)) {
           return prod.quantidade = prod.quantidade - compraFinal.itemQuantidade
         }
     }
-    )
+    ); */
 
+    const atualizaEstoque = compraFinal.forEach((item)=>{
+      let produto = estoque.find((p)=>{
+        p.codigoBarra === item.itemCodigoBarra
+      });
+      if(produto) {
+        produto.quantidade -= item.itemQuantidade
+      }
+    });
+    
     console.log(estoque);
 
   }
@@ -159,5 +169,3 @@ console.log(atendimento1.informaCliente());
 
 let compra1 = atendimento1.compraCliente();
 console.log(compra1);
-
-
