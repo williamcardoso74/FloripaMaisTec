@@ -1,7 +1,8 @@
 const { Sequelize } = require('sequelize');
+
 const connection = require('../database');
 
-const Task = connection.define('task',{
+const Place = connection.define('place',{
     id:{
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -12,7 +13,13 @@ const Task = connection.define('task',{
         type: Sequelize.STRING,
         allowNull: false
     },
-    description:{
-        type: Sequelize.STRING,
-    }
+    telefone:{
+        type: Sequelize.STRING(12),
+    },
+    opening_hours: {
+        type: Sequelize.STRING(4)
+    },
+    description: Sequelize.STRING,
+    latitude: Sequelize.DECIMAL,
+    longitude: Sequelize.DECINAL
 });
