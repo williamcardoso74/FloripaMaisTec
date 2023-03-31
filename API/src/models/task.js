@@ -16,3 +16,5 @@ const Task = connection.define('task',{
         type: Sequelize.STRING,
     }
 });
+
+module.exports = Task;
