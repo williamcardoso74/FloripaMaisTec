@@ -94,7 +94,7 @@ app.put('/places/:id', async (req,res) => {
 
   try {
     
-    const { idTest } = req.params;
+    const idTest = req.params.id;
     
     /* if (!idTest) {
       return res.status(400).json({ message: "É preciso informar o ID" });
@@ -126,7 +126,7 @@ app.put('/places/:id', async (req,res) => {
 
       return res
       .status(200)
-      .json({ message: `Place com Id ${idExists} foi atualizado!` });
+      .json({ message: `Place foi atualizado!` });
 
     } else {
         return res

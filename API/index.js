@@ -18,103 +18,120 @@ app.get("/", (request, response) => {
   response.json({ message: "Bem Vindo!" });
 });
 
-
-
 app.post("/tarefas", async (request, response) => {
+  try {
+    const tarefa = {
+      name: request.body.name,
+      description: request.body.description,
+    };
 
-    try {
-        
-        const tarefa = {
-            name: request.body.name,
-            description: request.body.description,
-        };
+    // um variável com
+    // "" é false
+    // 0 é false
+    // false é false
+    // null é false
+    // undefined é false
 
-               
-          // um variável com
-          // "" é false
-          // 0 é false
-          // false é false
-          // null é false
-          // undefined é false
-        
-          if(!tarefa.name || !tarefa.description) {
-            return response
-                .status(400)
-                .json({"message" : "Nome/descrição são obrigatórios"})
-          };
-        
-          /* if(!tarefa.description) {
+    if (!tarefa.name || !tarefa.description) {
+      return response
+        .status(400)
+        .json({ message: "Nome/descrição são obrigatórios" });
+    }
+
+    /* if(!tarefa.description) {
             return response
                 .status(400)
                 .json({"message" : "Descrição é obrigatória"})
           }; */
-        
-          // fazer o tratamento se o nome já existe na tabela
-          // desafio para a aula
 
-          const findTask = await Task.findOne({
-            where: { name: tarefa.name}
-          });
-          
-          if (findTask) {
-            return response
-                .status(400)
-                .json( {"message": "Tarefa já existente, crie uma nova"})
-          };
-        
-          // igual ao INSERT INTO task
-          // e retorna o dado que foi criado no banco de dados
-          const newTask = await Task.create(tarefa);
-        
-          //tarefas.push(tarefa);
-        
-          response.status(201).json(newTask);
+    // fazer o tratamento se o nome já existe na tabela
+    // desafio para a aula
 
-    } catch (error) {
-        response.status(500).json({"message": "Não conseguimos processar a sua solicitação"})
-        console.log(error);
-        console.log("Deu ruim")
+    const findTask = await Task.findOne({
+      where: { name: tarefa.name },
+    });
+
+    if (findTask) {
+      return response
+        .status(400)
+        .json({ message: "Tarefa já existente, crie uma nova" });
     }
-   
+
+    // igual ao INSERT INTO task
+    // e retorna o dado que foi criado no banco de dados
+    const newTask = await Task.create(tarefa);
+
+    //tarefas.push(tarefa);
+
+    response.status(201).json(newTask);
+  } catch (error) {
+    response
+      .status(500)
+      .json({ message: "Não conseguimos processar a sua solicitação" });
+    console.log(error);
+    console.log("Deu ruim");
+  }
 });
-
-
 
 app.get("/tarefas", async (_request, response) => {
-
-    try {
-        const tasks = await Task.findAll();  // select * from tasks
-        response.json(tasks);
-        //response.json(request.body.tarefas);
-    } catch (error) {
-        response.status(500).json({message: "Não foi possível processar"})
-    }
-   
+  try {
+    const tasks = await Task.findAll(); // select * from tasks
+    response.json(tasks);
+    //response.json(request.body.tarefas);
+  } catch (error) {
+    response.status(500).json({ message: "Não foi possível processar" });
+  }
 });
-
 
 // operação DELETE
 // igual DELETE FROM TASKS WHERE ID = id que recebi
 
-app.delete('/tarefas/:id', async (request,response) => {
-
-try {
-
-  await Task.destroy({
-    where: { id: request.params.id},
-    force: true
-  })
-  response
-  .status(204)
-  .json({"message" : `tarefa com id ${request.params.id} deletada`});
-
-} catch (error) {
-  response
-  .status(400)
-}
-
-  
+app.delete("/tarefas/:id", async (request, response) => {
+  try {
+    await Task.destroy({
+      where: { id: request.params.id },
+      force: true,
+    });
+    response
+      .status(204)
+      .json({ message: `tarefa com id ${request.params.id} deletada` });
+  } catch (error) {
+    response.status(400);
+  }
 });
 
+// METODO PUT - atualizar dados no banco de dados
+
+app.put('/tarefas/:id', async (request,response) => {
+  //console.log(request.params.id);
+  //console.log(request.body);
+
+  try {
+    
+    // pesquisar se o id já existe na tabela
+    //Task.findOne({where: {id: request.params.id}})
+    // ou pode escrever da forma abaixo, que é mais simples
+    const taskInDatabase = await Task.findByPk(request.params.id);
+
+    if(!taskInDatabase){
+      return response
+      .status(404)
+      .json({message: 'Tarefa não encontrada!'})
+    };
+
+    // altera os dados da tabela com os dados do request.body
+    taskInDatabase.name = request.body.name;
+    taskInDatabase.description = request.body.description
+    
+    // salva os dados na tabela
+    await taskInDatabase.save();
+
+    response.json(taskInDatabase);
+
+  } catch (error) {
+    
+  }
+
+})
 
 app.listen(3333, () => console.log("Aplicação Online"));
