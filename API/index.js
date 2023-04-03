@@ -28,7 +28,8 @@ app.post("/tarefas", async (request, response) => {
             name: request.body.name,
             description: request.body.description,
         };
-        
+
+               
           // um variável com
           // "" é false
           // 0 é false
@@ -50,10 +51,16 @@ app.post("/tarefas", async (request, response) => {
         
           // fazer o tratamento se o nome já existe na tabela
           // desafio para a aula
-        
-          // tratamento geral
-        
-        
+
+          const findTask = await Task.findOne({
+            where: { name: tarefa.name}
+          });
+          
+          if (findTask) {
+            return response
+                .status(400)
+                .json( {"message": "Tarefa já existente, crie uma nova"})
+          };
         
           // igual ao INSERT INTO task
           // e retorna o dado que foi criado no banco de dados
@@ -61,9 +68,6 @@ app.post("/tarefas", async (request, response) => {
         
           //tarefas.push(tarefa);
         
-          //console.log("Entrei de novo!");
-          //console.log(request.body);
-          //response.json(tarefa, 201);
           response.status(201).json(newTask);
 
     } catch (error) {
@@ -86,6 +90,30 @@ app.get("/tarefas", async (_request, response) => {
         response.status(500).json({message: "Não foi possível processar"})
     }
    
+});
+
+
+// operação DELETE
+// igual DELETE FROM TASKS WHERE ID = id que recebi
+
+app.delete('/tarefas/:id', async (request,response) => {
+
+try {
+
+  await Task.destroy({
+    where: { id: request.params.id},
+    force: true
+  })
+  response
+  .status(204)
+  .json({"message" : `tarefa com id ${request.params.id} deletada`});
+
+} catch (error) {
+  response
+  .status(400)
+}
+
+  
 });
 
 

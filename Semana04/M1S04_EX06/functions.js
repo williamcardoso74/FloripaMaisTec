@@ -10,6 +10,9 @@ let estoque = [
   { codigoBarra: 4444, preco: 5, produto: "leite", quantidade: 100 },
 ];
 
+localStorage.setItem('estoque',JSON.stringify(estoque));
+
+//colocar o estoque no localStorage
 
 
 function addProdutos() {
@@ -103,8 +106,7 @@ class CaixaRegistradora {
         
       } else {
         console.log("produto não existe, digite de novo!");
-        break;
-        //existeCodigo = true;
+        addProduto = false;
       };
       
     };
@@ -132,17 +134,39 @@ class CaixaRegistradora {
     ); */
 
     const atualizaEstoque = compraFinal.forEach((item)=>{
-      let produto = estoque.find((p)=>{
+      
+      let novoEstoque = JSON.parse(localStorage.getItem('estoque'));
+      
+      const estoqueAtualizado = novoEstoque.map((data)=>{
+
+        if (data.codigoBarra === item.itemCodigoBarra) {
+          return {
+            codigoBarra: data.codigoBarra,
+            preco: data.preco,
+            produto: data.produto,
+            quantidade: data.quantidade - item.itemQuantidade
+          }
+        }
+        return data;
+      })
+
+      localStorage.setItem('estoque',JSON.stringify(estoqueAtualizado));
+      
+      /* let produto = novoEstoque.find((p)=>{
         p.codigoBarra === item.itemCodigoBarra
-      });
-      if(produto) {
+      }); */
+
+      /* if(produto) {
         produto.quantidade -= item.itemQuantidade
-      }
+      } */
+
+      console.log(estoqueAtualizado);
+
     });
     
-    console.log(estoque);
+    estoque = JSON.parse(localStorage.getItem('estoque'));
 
-  }
+  };
   
   /* fecharConta() {
     
