@@ -1,13 +1,15 @@
 const express = require("express");
 const connection = require("./src/database");
+
 const Task = require("./src/models/task");
+const User = require("./src/models/user");
 
 const app = express();
 
 const tarefas = [];
 
 connection.authenticate();
-connection.sync();
+connection.sync({ alter: true });
 console.log("Connection has been established successfully.");
 
 app.use(express.json()); //prepara a API para receber arquivos JSON
@@ -102,36 +104,46 @@ app.delete("/tarefas/:id", async (request, response) => {
 
 // METODO PUT - atualizar dados no banco de dados
 
-app.put('/tarefas/:id', async (request,response) => {
+app.put("/tarefas/:id", async (request, response) => {
   //console.log(request.params.id);
   //console.log(request.body);
 
   try {
-    
     // pesquisar se o id já existe na tabela
     //Task.findOne({where: {id: request.params.id}})
     // ou pode escrever da forma abaixo, que é mais simples
     const taskInDatabase = await Task.findByPk(request.params.id);
 
-    if(!taskInDatabase){
-      return response
-      .status(404)
-      .json({message: 'Tarefa não encontrada!'})
-    };
+    if (!taskInDatabase) {
+      return response.status(404).json({ message: "Tarefa não encontrada!" });
+    }
 
     // altera os dados da tabela com os dados do request.body
-    taskInDatabase.name = request.body.name;
-    taskInDatabase.description = request.body.description
-    
+    taskInDatabase.name = request.body.name || taskInDatabase.name;
+    taskInDatabase.description = request.body.description;
+
     // salva os dados na tabela
     await taskInDatabase.save();
 
     response.json(taskInDatabase);
+  } catch (error) {}
+});
 
-  } catch (error) {
-    
-  }
+// POST - Cadastro de novo usuário
 
-})
+app.post("/users", async (request, response) => {
+  // no post eu recebo os dados via body
+  try {
+    const newUser = {
+      name: request.body.name,
+      cpf: request.body.cpf,
+      password: request.body.password,
+    };
+
+    const user = await User.create(newUser);
+
+    response.status(201).json({ user });
+  } catch (error) {}
+});
 
 app.listen(3333, () => console.log("Aplicação Online"));
