@@ -9,11 +9,12 @@ const User = connection.define('user',{
     },
     name:{
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
     },
     cpf: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     password: {
         type: Sequelize.STRING,
