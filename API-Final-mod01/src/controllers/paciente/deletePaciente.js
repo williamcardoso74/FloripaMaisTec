@@ -8,7 +8,7 @@ async function deletePaciente(request, response) {
     if (!paciente) {
       return response
         .status(404)
-        .json({ message: "Não existe usuário com este ID" });
+        .json({ message: "Não existe paciente com este ID" });
     };
 
     await Paciente.destroy({
@@ -16,8 +16,8 @@ async function deletePaciente(request, response) {
     });
     
     response
-      .status(200)
-      .json({ messagem: `Usuário foi deletado com sucesso!` });
+      .status(204)
+      .json({ messagem: `Paciente foi deletado com sucesso!` });
 
   } catch (error) {
     response

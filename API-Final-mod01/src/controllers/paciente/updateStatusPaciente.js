@@ -12,7 +12,20 @@ async function updateStatusPaciente(request, response) {
       });
     };
 
-    if (
+    if (["AGUARDANDO_ATENDIMENTO","EM_ATENDIMENTO","ATENDIDO","NAO_ATENDIDO"].includes(pacienteParams.status)) {
+      
+      pacienteInTable.statusAtendimento = pacienteParams.status;
+      await pacienteInTable.save();
+
+      return response.status(200).json(pacienteInTable);
+
+    } else {
+      response.status(404).json({
+        message: "Status de Paciente Invalido!",
+      });
+    };
+
+    /* if (
       pacienteParams.status === "AGUARDANDO_ATENDIMENTO" ||
       pacienteParams.status === "EM_ATENDIMENTO" ||
       pacienteParams.status === "ATENDIDO" ||
@@ -24,9 +37,9 @@ async function updateStatusPaciente(request, response) {
       response.status(404).json({
         message: "Status de Paciente Invalido!",
       });
-    };
+    }; */
 
-    response.status(200).json(pacienteInTable);
+    //response.status(200).json(pacienteInTable);
 
   } catch (error) {
     response.status(400).json({

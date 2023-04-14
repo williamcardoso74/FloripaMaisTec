@@ -1,20 +1,20 @@
 const { Sequelize } = require("sequelize");
 const connection = require("../database");
 
-const Paciente = connection.define("paciente", {
+const Enfermeiro = connection.define("enfermeiro", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  nomeCompleto: {
+  nome_completo: {
     type: Sequelize.STRING,
     allowNull: false,
   },
   genero: {
     type: Sequelize.STRING,
   },
-  dataNascimento: {
+  data_nascimento: {
     type: Sequelize.DATEONLY,
     allowNull: false,
   },
@@ -25,29 +25,14 @@ const Paciente = connection.define("paciente", {
   telefone: {
     type: Sequelize.STRING,
   },
-  contatoEmergencia: {
+  instituicao_ensino_formacao: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  listaAlergias: {
+  cadastro_cofen_uf: {
     type: Sequelize.STRING,
-  },
-  listaCuidados: {
-    type: Sequelize.STRING,
-  },
-  convenio: {
-    type: Sequelize.STRING,
-  },
-  statusAtendimento: Sequelize.ENUM(
-    "AGUARDANDO_ATENDIMENTO",
-    "EM_ATENDIMENTO",
-    "ATENDIDO",
-    "NAO_ATENDIDO"
-  ),
-  atendimentos: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0
+    allowNull: false,
   }
 });
 
-module.exports = Paciente;
+module.exports = Enfermeiro;
