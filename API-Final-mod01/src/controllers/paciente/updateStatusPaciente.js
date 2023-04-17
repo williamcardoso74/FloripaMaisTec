@@ -4,6 +4,8 @@ async function updateStatusPaciente(request, response) {
   try {
     const pacienteParams = request.params;
 
+    const statusInBody = request.body.statusAtendimento;
+
     const pacienteInTable = await Paciente.findByPk(pacienteParams.id);
 
     if (!pacienteInTable) {
@@ -12,9 +14,9 @@ async function updateStatusPaciente(request, response) {
       });
     };
 
-    if (["AGUARDANDO_ATENDIMENTO","EM_ATENDIMENTO","ATENDIDO","NAO_ATENDIDO"].includes(pacienteParams.status)) {
+    if (["AGUARDANDO_ATENDIMENTO","EM_ATENDIMENTO","ATENDIDO","NAO_ATENDIDO"].includes(statusInBody)) {
       
-      pacienteInTable.statusAtendimento = pacienteParams.status;
+      pacienteInTable.statusAtendimento = statusInBody;
       await pacienteInTable.save();
 
       return response.status(200).json(pacienteInTable);
@@ -24,22 +26,6 @@ async function updateStatusPaciente(request, response) {
         message: "Status de Paciente Invalido!",
       });
     };
-
-    /* if (
-      pacienteParams.status === "AGUARDANDO_ATENDIMENTO" ||
-      pacienteParams.status === "EM_ATENDIMENTO" ||
-      pacienteParams.status === "ATENDIDO" ||
-      pacienteParams.status === "NAO_ATENDIDO"
-    ) {
-      pacienteInTable.statusAtendimento = pacienteParams.status;
-      await pacienteInTable.save();
-    } else {
-      response.status(404).json({
-        message: "Status de Paciente Invalido!",
-      });
-    }; */
-
-    //response.status(200).json(pacienteInTable);
 
   } catch (error) {
     response.status(400).json({

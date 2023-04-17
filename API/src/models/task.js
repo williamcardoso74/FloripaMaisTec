@@ -22,8 +22,5 @@ const Task = connection.define('task',{
 });
 
 Task.belongsTo(User);
-// ou pode ser como está abaixo:
-// 
-
 
 module.exports = Task;

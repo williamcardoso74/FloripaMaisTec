@@ -4,20 +4,22 @@ async function updateMedicoStatus(request, response) {
   try {
     const filtroMedico = request.params;
 
+    const statusInBody = request.body.estado_no_sistema;
+
     const findMedico = await Medico.findByPk(filtroMedico.id);
 
-    if (!findMedico.id) {
+    if (!findMedico) {
       return response
         .status(404)
         .json({ message: "Não existe médico com este ID" });
     }
 
-    if (!["ATIVO", "INATIVO"].includes(filtroMedico.status)) {
+    if (!["ATIVO", "INATIVO"].includes(statusInBody)) {
       return responsestatus(404).json({
         message: "Status Inválido. Utilize: ATIVO ou INATIVO",
       });
     } else {
-      findMedico.estado_no_sistema = filtroMedico.status;
+      findMedico.estado_no_sistema = statusInBody;
       await findMedico.save();
 
       return response.status(200).json(findMedico);

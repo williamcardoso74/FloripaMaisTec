@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 const Paciente = require('./src/models/paciente');
 const Medico = require('./src/models/medico');
 const Enfermeiro = require('./src/models/enfermeiro');
+const Atendimento = require('./src/models/atendimento');
 
 const createPaciente = require('./src/controllers/paciente/createPaciente');
 const updatePaciente = require('./src/controllers/paciente/updatePaciente');
@@ -29,6 +30,8 @@ const listEnfermeiro = require("./src/controllers/enfermeiro/listEnfermeiro");
 const listEnfermeiroID = require("./src/controllers/enfermeiro/listEnfermeiroID");
 const deleteEnfermeiro = require("./src/controllers/enfermeiro/deleteEnfermeiro");
 
+const atendimento = require("./src/controllers/atendimento/atendimento");
+
 
 const app = express();
 
@@ -40,7 +43,7 @@ app.use(express.json());
 // ROTAS PACIENTE
 app.post('/api/pacientes', createPaciente);
 app.put('/api/pacientes/:id', updatePaciente);
-app.put('/api/pacientes/:id/:status', updateStatusPaciente);
+app.put('/api/pacientes/:id/status', updateStatusPaciente);
 app.get('/api/pacientes', listPaciente);
 app.get('/api/pacientes/:id', listPacienteId);
 app.delete('/api/pacientes/:id', deletePaciente);
@@ -48,7 +51,7 @@ app.delete('/api/pacientes/:id', deletePaciente);
 // ROTAS MEDICO
 app.post('/api/medicos', createMedico);
 app.put('/api/medicos/:id', updateMedico);
-app.put('/api/medicos/:id/:status', updateMedicoStatus);
+app.put('/api/medicos/:id/status', updateMedicoStatus);
 app.get('/api/medicos', listMedico);
 app.get('/api/medicos/:id', listMedicoID);
 app.delete('/api/medicos/:id', deleteMedico);
@@ -59,6 +62,9 @@ app.put('/api/enfermeiros/:id', updateEnfermeiro);
 app.get('/api/enfermeiros', listEnfermeiro);
 app.get('/api/enfermeiros/:id', listEnfermeiroID);
 app.delete('/api/enfermeiros/:id', deleteEnfermeiro);
+
+// ROTA ATENDIMENTO
+app.post( '/api/atendimentos', atendimento);
 
 
 // PORTA DA API
