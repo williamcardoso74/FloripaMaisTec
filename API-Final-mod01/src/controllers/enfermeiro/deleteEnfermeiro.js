@@ -9,15 +9,17 @@ async function deleteEnfermeiro(request, response) {
     if (!enfermeiro) {
       return response
         .status(404)
-        .json({ message: "Não existe enfermeiro com este ID" });
+        .json({ message: "Não existe enfermeiro com este Identificador" });
     }
 
     await Enfermeiro.destroy({
-      where: { id: enfermeiroId },
+      where: { identificador: enfermeiroId },
     });
 
+    //const resposta = `Enfermeiro(a) ${enfermeiro.nome_completo} com ID ${enfermeiro.identificador} foi deletadado com sucesso`
+    
     response.status(204)
-    //.json({ messagem: "Enfermeiro foi deletado com sucesso!" });
+    //.json(resposta});
 
   } catch (error) {
     response

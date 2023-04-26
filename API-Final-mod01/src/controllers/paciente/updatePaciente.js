@@ -1,6 +1,6 @@
 const Paciente = require("../../models/paciente");
 
-async function updatePaciente(request, response) {
+async function updatePaciente (request, response) {
   try {
     const pacienteInTable = await Paciente.findByPk(request.params.id);
 
@@ -21,73 +21,53 @@ async function updatePaciente(request, response) {
       listaCuidados: request.body.listaCuidados,
       convenio: request.body.convenio,
     };
-
-    if (!pacienteInBody.nomeCompleto) {
-      return response
-        .status(400)
-        .json({ message: "É preciso informar o nome completo" });
-    };
-
-    if (!pacienteInBody.dataNascimento) {
+    
+    if (pacienteInBody.dataNascimento === "") {
       return response
         .status(400)
         .json({ message: "É preciso informar a data de nascimento!" });
-    };
+    }
 
-    if (!pacienteInBody.cpf) {
-      return response
-        .status(400)
-        .json({ message: "É preciso informar o CPF!" });
-    };
-
-    if (!pacienteInBody.contatoEmergencia) {
+    if (pacienteInBody.contatoEmergencia === "") {
       return response
         .status(400)
         .json({ message: "É preciso informar o Contato de Emergência!" });
-    };
+    }
 
-    switch (pacienteInBody.statusAtendimento) {
-      case "AGUARDANDO_ATENDIMENTO":
-        break;
-      case "EM_ATENDIMENTO":
-        break;
-      case "ATENDIDO":
-        break;
-      case "NAO_ATENDIDO":
-        break;
-      default:
-        return response
-          .status(400)
-          .json({ message: "É preciso informar o status de paciente correto" });
-    };
 
-    /* const cpfInTable = await Paciente.findOne({
-      where: { cpf: pacienteInBody.cpf }
-    }); */
 
-    /* if (cpfInTable.id != pacienteInTable.id) {
-      return response.status(400).json({ message: "Já existe outro paciente com este CPF" });
-    }; */
-
-    pacienteInTable.nomeCompleto = pacienteInBody.nomeCompleto;
-    pacienteInTable.genero = pacienteInBody.genero;
-    pacienteInTable.dataNascimento = pacienteInBody.dataNascimento;
-    pacienteInTable.cpf = pacienteInBody.body.cpf;
-    pacienteInTable.telefone = pacienteInBody.body.telefone;
-    pacienteInTable.contatoEmergencia = pacienteInBody.contatoEmergencia;
-    pacienteInTable.listaAlergias = pacienteInBody.listaAlergias;
-    pacienteInTable.listaCuidados = pacienteInBody.listaCuidados;
-    pacienteInTable.convenio = pacienteInBody.convenio;
+    pacienteInTable.nomeCompleto = pacienteInBody.nomeCompleto || pacienteInTable.nomeCompleto;
+    pacienteInTable.genero = pacienteInBody.genero || pacienteInTable.genero;
+    pacienteInTable.dataNascimento = pacienteInBody.dataNascimento || pacienteInTable.dataNascimento;
+    pacienteInTable.cpf = pacienteInBody.cpf || pacienteInTable.cpf;
+    pacienteInTable.telefone = pacienteInBody.telefone || pacienteInTable.telefone;
+    pacienteInTable.contatoEmergencia = pacienteInBody.contatoEmergencia || pacienteInTable.contatoEmergencia;
+    pacienteInTable.listaAlergias = pacienteInBody.listaAlergias || pacienteInTable.listaAlergias;
+    pacienteInTable.listaCuidados = pacienteInBody.listaCuidados || pacienteInTable.listaCuidados;
+    pacienteInTable.convenio = pacienteInBody.convenio || pacienteInTable.convenio;
 
     await pacienteInTable.save(); // UPDATE
 
-    response.status(200).json(pacienteInTable);
-    //response.status(200).json({ message: "Usuário Atualizado " });
+    const resposta = {
+      nomeCompleto: pacienteInTable.nomeCompleto,
+      genero: pacienteInTable.genero,
+      dataNascimento: pacienteInTable.dataNascimento,
+      cpf: pacienteInTable.cpf,
+      telefone: pacienteInTable.telefone,
+      contatoEmergencia: pacienteInTable.contatoEmergencia,
+      listaAlergias: pacienteInTable.listaAlergias,
+      listaCuidados: pacienteInTable.listaCuidados,
+      convenio: pacienteInTable.convenio
+    };
+    
+    response.status(200).json(resposta);
+
   } catch (error) {
     response
-      .status(400)
-      .json({ message: "Não foi possivel atender sua solicitação!" });
-  }
+    .status(400)
+    .json({ message: "Não foi possivel atender sua solicitação!" });
+  };
+
 };
 
 module.exports = updatePaciente;

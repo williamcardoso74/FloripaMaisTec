@@ -6,10 +6,16 @@ const connection = require("./src/database");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+const validateNewUser = require('./src/middlewares/validate-new-user');
+const validateToken = require('./src/middlewares/validate-token');
+
 const Paciente = require('./src/models/paciente');
 const Medico = require('./src/models/medico');
 const Enfermeiro = require('./src/models/enfermeiro');
 const Atendimento = require('./src/models/atendimento');
+
+const createUser = require('./src/controllers/users/createUser');
+const createLogin = require('./src/controllers/users/createLogin');
 
 const createPaciente = require('./src/controllers/paciente/createPaciente');
 const updatePaciente = require('./src/controllers/paciente/updatePaciente');
@@ -32,7 +38,6 @@ const deleteEnfermeiro = require("./src/controllers/enfermeiro/deleteEnfermeiro"
 
 const atendimento = require("./src/controllers/atendimento/atendimento");
 
-
 const app = express();
 
 connection.authenticate();
@@ -40,31 +45,35 @@ connection.sync({ alter: true });
 
 app.use(express.json());
 
+// ROTAS USER
+app.post('/api/users', validateNewUser, createUser);
+app.post('/api/users/login', createLogin);
+
 // ROTAS PACIENTE
-app.post('/api/pacientes', createPaciente);
-app.put('/api/pacientes/:id', updatePaciente);
-app.put('/api/pacientes/:id/status', updateStatusPaciente);
-app.get('/api/pacientes', listPaciente);
-app.get('/api/pacientes/:id', listPacienteId);
-app.delete('/api/pacientes/:id', deletePaciente);
+app.post('/api/pacientes', validateToken, createPaciente);
+app.put('/api/pacientes/:id', validateToken, updatePaciente);
+app.put('/api/pacientes/:id/status', validateToken, updateStatusPaciente);
+app.get('/api/pacientes', validateToken,listPaciente);
+app.get('/api/pacientes/:id', validateToken, listPacienteId);
+app.delete('/api/pacientes/:id', validateToken, deletePaciente);
 
 // ROTAS MEDICO
-app.post('/api/medicos', createMedico);
-app.put('/api/medicos/:id', updateMedico);
-app.put('/api/medicos/:id/status', updateMedicoStatus);
-app.get('/api/medicos', listMedico);
-app.get('/api/medicos/:id', listMedicoID);
-app.delete('/api/medicos/:id', deleteMedico);
+app.post('/api/medicos', validateToken, createMedico);
+app.put('/api/medicos/:id', validateToken, updateMedico);
+app.put('/api/medicos/:id/status', validateToken, updateMedicoStatus);
+app.get('/api/medicos', validateToken, listMedico);
+app.get('/api/medicos/:id', validateToken, listMedicoID);
+app.delete('/api/medicos/:id', validateToken, deleteMedico);
 
 // ROTAS ENFERMEIRO
-app.post('/api/enfermeiros', createEnfermeiro);
-app.put('/api/enfermeiros/:id', updateEnfermeiro);
-app.get('/api/enfermeiros', listEnfermeiro);
-app.get('/api/enfermeiros/:id', listEnfermeiroID);
-app.delete('/api/enfermeiros/:id', deleteEnfermeiro);
+app.post('/api/enfermeiros', validateToken, createEnfermeiro);
+app.put('/api/enfermeiros/:id', validateToken, updateEnfermeiro);
+app.get('/api/enfermeiros', validateToken, listEnfermeiro);
+app.get('/api/enfermeiros/:id', validateToken, listEnfermeiroID);
+app.delete('/api/enfermeiros/:id', validateToken, deleteEnfermeiro);
 
 // ROTA ATENDIMENTO
-app.post( '/api/atendimentos', atendimento);
+app.post( '/api/atendimentos', validateToken, atendimento);
 
 
 // PORTA DA API

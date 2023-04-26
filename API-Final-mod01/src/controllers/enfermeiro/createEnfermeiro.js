@@ -2,10 +2,7 @@ const Enfermeiro = require("../../models/enfermeiro");
 
 async function createEnfermeiro(request, response) {
   try {
-
-    const enferBody = { ...request.params.body };
-    console.log(enferBody);
-
+    
     const enfermeiro = {
       nome_completo: request.body.nome_completo,
       genero: request.body.genero,

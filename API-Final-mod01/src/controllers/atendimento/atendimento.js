@@ -35,9 +35,6 @@ async function atendimento(request, response) {
     }
 
     const newAtendimento = paramsInBody;
-    //Atendimento.data_atendimento = paramsInBody.data_atendimento;
-    //Atendimento.id_paciente = paramsInBody.id_paciente;
-    //Atendimento.id_medico = paramsInBody.id_medico;
     await Atendimento.create(newAtendimento);
 
     findPaciente.atendimentos++;
@@ -47,11 +44,8 @@ async function atendimento(request, response) {
     findMedico.atendimentos_realizados++;
     await findMedico.save();
 
-    //const resposta = `Medico ${findMedico.nome_completo} atendeu o paciente ${findPaciente.nomeCompleto} no dia ${paramsInBody.data_atendimento}`;
-
-    // como escrever duas respostas dentro do json abaixo?
-    //response.status(200).json(resposta);
-    response.status(200).json(newAtendimento);
+    const resposta = `Medico ${findMedico.nome_completo} atendeu o paciente ${findPaciente.nomeCompleto} no dia ${paramsInBody.data_atendimento}`;
+    response.status(200).json({...newAtendimento,resposta});
     
   } catch (error) {
     response

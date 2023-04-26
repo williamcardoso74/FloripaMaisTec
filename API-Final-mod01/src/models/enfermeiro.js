@@ -2,7 +2,7 @@ const { Sequelize } = require("sequelize");
 const connection = require("../database");
 
 const Enfermeiro = connection.define("enfermeiro", {
-  id: {
+  identificador: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     primaryKey: true,

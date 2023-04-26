@@ -19,7 +19,12 @@ async function updateStatusPaciente(request, response) {
       pacienteInTable.statusAtendimento = statusInBody;
       await pacienteInTable.save();
 
-      return response.status(200).json(pacienteInTable);
+      const resposta = {
+        nomeCompleto: pacienteInTable.nomeCompleto,
+        statusAtendimento: pacienteInTable.statusAtendimento
+      };
+
+      return response.status(200).json(resposta);
 
     } else {
       response.status(404).json({

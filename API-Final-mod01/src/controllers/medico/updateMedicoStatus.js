@@ -22,7 +22,12 @@ async function updateMedicoStatus(request, response) {
       findMedico.estado_no_sistema = statusInBody;
       await findMedico.save();
 
-      return response.status(200).json(findMedico);
+      const resposta = {
+        nome_completo: findMedico.nome_completo,
+        estado_no_sistema: findMedico.estado_no_sistema
+      };
+
+      return response.status(200).json(resposta);
     }
   } catch (error) {
     response.status(400).json({
