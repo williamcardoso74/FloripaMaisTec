@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidadania</title>
+</head>
+<body>
+    <h1>Consulte sua cidadania:</h1>
+    <h2>Qual é o seu pais?</h2>
+    <input type="text" name="txtpais" id="txtpais">
+    <input type="button" value="Consultar" onclick="pesquisar()">
+    <div id="res">
+
+    </div>
+
+    <script>
+        
+        function pesquisar() {
+            var p = window.document.getElementById('txtpais')
+            var res = window.document.querySelector('div#res')
+            var c = ''
+
+            if (p.value == 'Brasil') {
+                c = 'Brasileiro'
+                res.innerHTML += `<p>Você é <strong>${c.toUpperCase()}</strong>!`
+            } else {
+                c = 'Estrangeiro'
+                res.innerHTML += `<p>Você é <strong>${c.toUpperCase()}</strong>!`
+            }
+            res.innerHTML += `<p> Em todo o caso, você é bem-vindo!</p>`
+        }
+
+    </script>
+    
+</body>
+</html>
