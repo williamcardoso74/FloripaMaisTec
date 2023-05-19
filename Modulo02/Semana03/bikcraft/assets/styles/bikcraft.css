@@ -1,0 +1,128 @@
+@import '../styles/variaveis.css';
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+
+body {
+    background-color: var(--black);
+
+}
+
+.container {
+    background-color: var(--black);
+}
+
+h1, h2, h3, h4, h5, h6, span, p {
+    color: var(--text-1);
+}
+
+h1 {
+    margin-block-end: 0 !important;
+    margin-block-start: 0 !important;
+    font-size: 40px;
+}
+
+h6 {
+    font-size: 16px;
+    margin-block-start: 0 !important;
+    margin-top: 16px !important;
+    margin-bottom: 20px;
+    line-height: 22px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+ul {
+    display: flex;
+    margin: 0;
+    top: 17px;
+    flex-direction: row;
+    width: 300px;
+    justify-content: space-between;
+    color: var(--text-1);
+}
+
+li {    
+    list-style-type: none;
+    font-size: 16px;
+    cursor: pointer;
+  
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-1);
+}
+
+.text-muted {
+    color: var(--text-2);
+}
+
+.btn-active {
+    background-color: var(--btn-background-color-1);
+    cursor: pointer;
+    color: var(--black);
+    width: 180px;
+    height: 44px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+    position: relative;
+}
+
+.btn-active:hover {
+    background-color: var(--btn-background-hover-1);
+}
+
+.btn-active:before {
+    content: ' ';
+    position: absolute;
+    background-color: red;
+    width: 25px;
+    height: 25px;
+    left: -10px;
+}
+
+.btn-active:after {
+    content: ' ';
+    position: absolute;
+    background-color: blue;
+    width: 25px;
+    height: 25px;
+    right: -10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.col-6 {
+    max-width: 440px;    
+}
+
+.p-t-120 {
+    padding-top: 120px;
+}
+
+.img-banner {
+    width: 440px;
+}
+
+
+.text-yellow {
+    color: var(--btn-background-color-1);
+}
+

@@ -1,0 +1,18 @@
+/* utiliza esta configuração para todo o arquivo */
+* {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* formatação de uma classe */
+.text-danger {
+    color: red
+}
+
+.text-sucess {  
+    color: green;
+}
+
+.text-warning {
+    color: yellow;
+}

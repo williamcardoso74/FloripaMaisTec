@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="../scripts/main.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>SIGN IN</h1>
+      <p>Insira suas credenciais para acessar sua conta</p>
+
+      <form id="loginForm">
+        <label for="email"></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Informe seu E-mail ..."
+          required
+        /><br />
+
+        <br />
+        <label for="senha"></label>
+        <input
+          type="text"
+          id="senha"
+          name="senha"
+          placeholder="Informe sua senha ..."
+          required
+        /><br />
+
+        <br />
+        <button class="botao" type="submit" id="btnEntrar">Entrar</button>
+      </form>
+      <br />
+
+      <span
+        >Esqueceu sua Senha!
+        <a href="resetSenha.html">Redefinir sua Senha!</a></span
+      ><br />
+      <br /><span
+        >Ainda não tem uma conta? <a href="signUp.html">Cadastre-se!</a></span
+      >
+    </div>
+  </body>
+</html>
