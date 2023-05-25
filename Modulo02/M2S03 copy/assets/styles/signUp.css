@@ -1,41 +1,46 @@
 @import '../styles/variaveis.css';
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     background-color: var(--cor-fundo);
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
     flex-direction: column;
 }
 
-.s-container {
+.container {
     background-color: var(--cor-fundo-container);
     display: flex;
     flex-direction:column;
     justify-content: center;
+    align-items: center;
     width: 500px;
-    height: 400px;
+    height: 500px;
+    
 }
 
 input {
-    width: 320px;
+    width: 330px;
     height: 30px;
     border-radius: 5px;
     border-color: var(--cor-borda-input);
-    border-style: solid;
     color: var(--cor-texto-input);
-    padding-left: 5px;
+    border-style:solid;
     margin-top: 5px;
     margin-bottom: 5px;
-    font-weight: bold;
+    display: block;
+    padding-left: 5px;
+}
+
+.d-flex {
+    margin-top: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.d-flex input {
+    width: calc(320px * 0.50)
 }
 
 h1 {
@@ -43,6 +48,8 @@ h1 {
     justify-content: center;
     font-size: 32px;
     color: var(--cor-texto-principal);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .t2 {
@@ -50,6 +57,8 @@ h1 {
     justify-content: center;
     padding:5px;
     color: var(--cor-texto-secundario);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .btnEntrar {
@@ -64,9 +73,11 @@ h1 {
     border-style: none;
     border-radius: 5px;
     font-weight: bold;
+    margin-top: 20px;
 }
 
 .btnEntrar:hover {
+    display: block;
     background-color: var(--cor-link-hover);
 }
 

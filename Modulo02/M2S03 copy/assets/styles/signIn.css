@@ -1,26 +1,20 @@
 @import '../styles/variaveis.css';
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     background-color: var(--cor-fundo);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
     flex-direction: column;
 }
 
-.s-container {
+.container {
     background-color: var(--cor-fundo-container);
     display: flex;
     flex-direction:column;
     justify-content: center;
+    align-items: center;
     width: 500px;
     height: 400px;
 }
@@ -28,6 +22,7 @@ body {
 input {
     width: 320px;
     height: 30px;
+    display: flex;
     border-radius: 5px;
     border-color: var(--cor-borda-input);
     border-style: solid;

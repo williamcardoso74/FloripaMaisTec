@@ -1,10 +1,4 @@
-@import '../styles/variaveis.css';
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+@import "../styles/variaveis.css";
 
 body {
     background-color: var(--cor-fundo);
@@ -12,29 +6,30 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
     flex-direction: column;
 }
 
-.s-container {
+.container {
     background-color: var(--cor-fundo-container);
     display: flex;
     flex-direction:column;
     justify-content: center;
+    align-items: center;
     width: 500px;
-    height: 400px;
+    height: 500px;
 }
 
 input {
     width: 320px;
     height: 30px;
+    display: flex;
     border-radius: 5px;
     border-color: var(--cor-borda-input);
     border-style: solid;
     color: var(--cor-texto-input);
     padding-left: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
@@ -50,6 +45,24 @@ h1 {
     justify-content: center;
     padding:5px;
     color: var(--cor-texto-secundario);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btnEntrar {
+    background-color: var(--cor-link-ativo);
+    color: white;
+    display: block;
+    position: relative;
+    justify-content: center;
+    width: 260px;
+    height: 35px;
+    border-style: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 10px;
+    
 }
 
 .btnEntrar {

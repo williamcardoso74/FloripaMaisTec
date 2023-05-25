@@ -1,98 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SignUp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="../styles/signUp.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="s-container">
       <h1>Sign Up</h1>
-      <span class="t2">Insira seus dados para criar uma conta</span>
+      <span class="t2" aria-label="Insira seus dados para criar a conta"
+        >Insira seus dados para criar uma conta</span
+      >
 
       <div id="cadastro">
         <form id="loginCadastro">
-          <label for="empresa"></label>
-          <input
-            type="text"
-            name="empresa"
-            id="empresa"
-            placeholder="Empresa"
-            required
-          />
+          <div class="row">
+            <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+              <label for="empresa"></label>
+              <input
+                aria-label="Nome da empresa"
+                type="text"
+                name="empresa"
+                id="empresa"
+                placeholder="Empresa"
+                required
+              />
+            </div>
 
-          <label for="cnpj"></label>
-          <input
-            type="text"
-            name="cnpj"
-            id="cnpj"
-            placeholder="CNPJ"
-            required
-          />
+            <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+              <label for="cnpj"></label>
+              <input
+                aria-label="Número do CNPJ"
+                type="text"
+                name="cnpj"
+                id="cnpj"
+                placeholder="CNPJ"
+                required
+              />
+            </div>
 
-          <label for="responsavel"></label>
-          <input
-            type="text"
-            name="responsavel"
-            id="responsavel"
-            placeholder="Responsável"
-            required
-          />
+            <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+              <label for="responsavel"></label>
+              <input
+                aria-label="Nome do Responsável"
+                type="text"
+                name="responsavel"
+                id="responsavel"
+                placeholder="Responsável"
+                required
+              />
+            </div>
 
-          <div class="d-flex">
-            <label for="email"></label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="E-mail"
-              required
-            />
+            <div class="col-sm-6 col-md-6">
+              <div class="d-flex justify-content-center">
+                <label for="email"></label>
+                <input
+                  aria-label="Informe o e-mail"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="E-mail"
+                  required
+                />
+              </div>
 
-            <label for="telefone"></label>
-            <input
-              type="text"
-              name="telefone"
-              id="telefone"
-              placeholder="Telefone"
-              required
-            />
+              <div class="d-flex justify-content-center">
+                <label for="telefone"></label>
+                <input
+                  aria-label="Informe o telefone"
+                  type="text"
+                  name="telefone"
+                  id="telefone"
+                  placeholder="Telefone"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-6">
+              <div class="d-flex justify-content-center">
+                <label for="senha"></label>
+                <input
+                  aria-label="Informe a senha"
+                  type="password"
+                  name="senha"
+                  id="senha"
+                  placeholder="Senha"
+                  required
+                />
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <label for="confirmarSenha"></label>
+                <input
+                  aria-label="Confirme a senha"
+                  type="password"
+                  name="confirmarSenha"
+                  id="confirmarSenha"
+                  placeholder="Confirmar Senha"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+              <button
+                role="button"
+                aria-label="Clique para criar a conta"
+                class="btnEntrar"
+                type="submit"
+                id="btnEntrar"
+              >
+                Criar Conta
+              </button>
+            </div>
           </div>
-
-          <div class="d-flex">
-            <label for="senha"></label>
-            <input
-              type="password"
-              name="senha"
-              id="senha"
-              placeholder="Senha"
-              required
-            />
-
-            <label for="confirmarSenha"></label>
-            <input
-              type="password"
-              name="confirmarSenha"
-              id="confirmarSenha"
-              placeholder="Confirmar Senha"
-              required
-            />
-          </div>
-
-          <button class="btnEntrar" type="submit" id="btnEntrar">
-            Criar Conta
-          </button>
         </form>
       </div>
     </div>
 
     <span class="t2"
       >Já possui sua conta?
-      <a class="ref" href="../pages/signIn.html">Realizar login</a></span
+      <a
+        role="link"
+        aria-label="Já possui uma conta? Realizar Login!"
+        class="ref"
+        href="../pages/signIn.html"
+        >Realizar login</a
+      ></span
     >
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
     <script src="../script/signUp.js"></script>
   </body>
 </html>
