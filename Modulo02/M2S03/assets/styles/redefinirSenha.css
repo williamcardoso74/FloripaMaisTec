@@ -32,8 +32,7 @@ input {
     border-style: solid;
     color: var(--cor-texto-input);
     padding-left: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 

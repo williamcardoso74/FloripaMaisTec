@@ -1,0 +1,25 @@
+.Main{
+  margin: 20%;
+}
+
+.Main input{
+  margin: 50px;
+  border: 1px solid rgb(165, 162, 162);
+  margin-bottom: auto;
+  width: 40%;
+  padding: 5px 40px 5px 40px;
+  outline: none;
+  background-color: white;
+  border-radius: 35px;
+}
+
+Button{
+  width: 140px;
+  height: 36px;
+  color: rgb(67, 65, 65);
+  border-radius: 4px;
+  border: 1px solid rgb(165, 162, 162);
+  font-size: 14px;
+  min-width: 54px;
+  margin: 1%;
+}

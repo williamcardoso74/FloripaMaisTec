@@ -1,0 +1,37 @@
+.Header {
+    background-color: #fff;
+    color: #222;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.Menu {
+   display: flex;
+   margin: 0;
+   flex-direction: row;
+   width: 200px;
+   justify-content: space-between;
+   gap: 10px;
+}
+
+.Menu-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.icon {
+    border-radius: 20px;
+}
+
+.Menu li {
+    list-style-type: none;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.Menu a {
+    text-decoration: none;
+    color: #222;
+}
