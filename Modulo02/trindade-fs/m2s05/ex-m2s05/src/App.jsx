@@ -1,10 +1,12 @@
-import './App.css';
-import Hello from './components/Hello';
+import "./App.css";
+import Hello from "./components/Hello";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-       <Hello texto={'Hello World'}/>
+      <Header />
+      {/* <Hello texto={'Hello World'}*/}
     </div>
   );
 }
