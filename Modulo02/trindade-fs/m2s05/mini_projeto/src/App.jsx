@@ -4,7 +4,7 @@ import googleLogo from "./images/googlelogo.png";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Button from "./components/Button";
-import PropTypes form 'prop-types';
+import PropTypes from 'prop-types';
 
 
 function App() {
