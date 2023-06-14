@@ -4,6 +4,25 @@
   background-color: brown;
   color: burlywood;
   align-items: flex-start;
-  justify-content: center;
-  gap: 2px;
+  justify-content:center;
+  padding-top: 3px;
+  padding-bottom: 10px;
+}
+
+.title1 {
+  padding-top: 5px;
+  color: yellow;
+  font-size: small;
+  
+}
+
+.title2 {
+  color: yellow;
+  font-size: xx-large;
+  padding-top: 0;
+}
+
+.dot {
+  color: black;
+  font-size:xx-large;
 }

@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Header/>
-      <Banner title1="ESCOLHA O MELHOR PARA VOCÊ" title2="nossos produtos"/>
+      <Banner title1="ESCOLHA O MELHOR PARA VOCÊ" title2="nossos produtos" dot="."/>
       <CardProduct/>
       <Footer/>
     </>
