@@ -1,12 +1,13 @@
 import React from "react";
 import "../styles/Header.css";
+import BannerImage from '../images/banner-tronics.jpg';
 
 function Header() {
   return (
     <nav>
       <div className="container-fluid">
         <img
-          src="https://www.origamid.com/projetos/bikcraft/img/bikcraft.svg"
+          src={BannerImage} 
           alt=""
         />
         <ul>

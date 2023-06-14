@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items:center;
-    background-color: black;
+    background-color: brown;
     width: auto;
     height: 80px;
     vertical-align: middle;
@@ -19,13 +19,19 @@ ul {
 
 li {
     list-style-type: none;
-    font-size: 16px;
+    font-size: 22px;
     cursor: pointer;
-    color: white;
+    color: burlywood;
 }
 
 a {
     text-decoration: none;
-    color: #white;
+    color: white;
     position: relative;
+}
+
+img {
+    margin-top: 12px;
+    width: 120px;
+    height: 80px;
 }

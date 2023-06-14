@@ -1,14 +1,14 @@
 .Footer-wrapper {
     display: flex;
     flex-direction: row;
-    background-color: black;
+    background-color: brown;
     height: 200px;
 }
 
 .Empresa-wrapper {
     display: flex;
     flex-direction: column;
-    color: white;
+    color: burlywood;
     justify-content: space-between;
     
 }

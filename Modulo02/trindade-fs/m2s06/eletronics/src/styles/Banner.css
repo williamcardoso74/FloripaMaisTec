@@ -1,8 +1,8 @@
 .banner {
   display: flex;
   flex-direction: column;
-  background-color: black;
-  color: white;
+  background-color: brown;
+  color: burlywood;
   align-items: flex-start;
   justify-content: center;
   gap: 2px;
