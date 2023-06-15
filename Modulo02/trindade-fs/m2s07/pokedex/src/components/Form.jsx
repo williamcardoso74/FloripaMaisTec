@@ -2,20 +2,15 @@ import React from "react";
 import Input from "./Input";
 import Button from "./Button";
 
-function Form() {
+function Form({botao, num_botao, legenda_input, tipo_input }) {
   return (
-    <div>
+    
       <div>
-        <Input className="mb-1" txt_placeHolder="Place Holder 2" />
-        <Button className="mb-2" texto="Botão 1 " numero="1" />
+        <Input type={tipo_input} className="mb-1" txt_placeHolder={legenda_input} />
+        <Button className="mb-2" texto={botao} numero={num_botao} />
       </div>
-
-      <div>
-        <Input txt_placeHolder="Place Holder 2" />
-        <Button texto="Botão 2 " numero="2" />
-      </div>
-    </div>
+        
   );
-}
+};
 
 export default Form;

@@ -5,7 +5,9 @@ function App() {
   
   return ( 
     <div className="App">
-      <Form/>
+      <h1>Olá Mundo!</h1>
+      <Form tipo_input="email" botao="Botão 1" num_botao="1" legenda_input="Digite seu e-mail"/>
+      <Form tipo_input="password" botao="Botão 2" num_botao="2" legenda_input="Digite sua senha"/>
     </div>
    );
 }

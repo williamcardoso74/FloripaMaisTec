@@ -27,6 +27,19 @@
     align-items: flex-start;
     justify-content: flex-start;
 
+
+}
+
+.CardImage-Wrapper {
+    position: relative;
+}
+
+.CardImage-Wrapper span {
+    position: absolute;
+    padding: 14px 32px;
+    top: 50px;
+    right: 80px;
+    background-color: yellow;
 }
 
 .Row-Wrapper {

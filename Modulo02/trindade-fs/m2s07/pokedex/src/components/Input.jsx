@@ -1,11 +1,16 @@
 import React from 'react';
 
 function Input({txt_placeHolder}) {
+
+    function imprimirInput(e) {
+        console.log(e.target.value)
+    }
+
     return ( 
         
         <div>
-            <label className="mt-1" for="Input" className="form-label">Input</label>
-            <input type="text" className="form-control" placeholder={txt_placeHolder}/>
+            <label className="m-1" for="Input"></label>
+            <input type="text" placeholder={txt_placeHolder} onChange={imprimirInput}/>
         </div>
         
      );
