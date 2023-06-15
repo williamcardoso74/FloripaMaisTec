@@ -18,6 +18,19 @@ function CardProduct() {
         `lorem${Number((Math.random() * 10).toFixed(0))}`,
        ]
     },
+    {
+      id: 2,
+      item: "Microphone",
+      photo: "microphone.jpg",
+      price: Number((Math.random() * 2000).toFixed(2)),
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque convallis ante tortor, vel sagittis velit ultricies quis. Mauris ipsum mauris.",
+      caracters: [
+        `lorem${Number((Math.random() * 10).toFixed(0))}`,
+        `lorem${Number((Math.random() * 10).toFixed(0))}`,
+        `lorem${Number((Math.random() * 10).toFixed(0))}`,
+        `lorem${Number((Math.random() * 10).toFixed(0))}`,
+       ]
+    },
     
   ]
 
