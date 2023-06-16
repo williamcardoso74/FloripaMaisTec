@@ -6,9 +6,18 @@
 }
 
 .Empresa-wrapper {
-    display: flex;
-    flex-direction: column;
+    
     color: burlywood;
     justify-content: space-between;
     
+}
+
+.Contato-wrapper {
+    color: burlywood;
+    justify-content: space-between;
+}
+
+.Informacoes-wrapper {
+    color: burlywood;
+    justify-content: space-between;
 }
