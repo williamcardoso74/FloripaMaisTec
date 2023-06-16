@@ -1,0 +1,48 @@
+.pokebola {
+  display: flex;
+  flex-direction: column;
+  max-width: 425px;
+  padding: 5%;
+  align-items: center;
+}
+
+.top-bar,
+.bottom-bar {
+  flex: 1;
+  border: 1px solid #52181c;
+  width: 420px;
+}
+
+.top-bar {
+  border-radius: 210px 210px 0 0;
+  height: 210px;
+  padding-top: 210px;
+  background-color: #c40c24;
+}
+
+.bottom-bar {
+  border-radius: 0 0 210px 210px;
+  border-top: 10px solid black;
+  margin-top: 0;
+  padding-top: 210px;
+}
+
+.visor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0f5fe94;
+  border-right: 5px solid white;
+  border-left: 5px solid white;
+  position: relative;
+}
+
+.visor__action-button {
+  background-color: white;
+  border: 10px solid black;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  cursor: pointer;
+}
