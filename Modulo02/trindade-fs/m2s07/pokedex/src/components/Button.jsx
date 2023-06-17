@@ -1,7 +1,7 @@
 import React from "react";
 /* import Proptypes from 'prop-types'; */
 
-function Button({ contador, texto = "Button", numero = 0, tipo = "button" }) {
+function Button({ contador, texto = "Botão", numero = 0, tipo = "button" }) {
   function evento(e) {
     e.preventDefault();
     console.log("Você apertou o botão " + numero);

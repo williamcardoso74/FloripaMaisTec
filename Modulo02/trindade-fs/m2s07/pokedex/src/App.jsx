@@ -4,6 +4,7 @@ import Button from "./components/Button";
 import Header from "./components/Header";
 import Counter from "./components/Counter";
 import Pokebola from "./components/Pokebola";
+import Pokedex from "./components/Pokedex";
 
 function App() {
   let condicional = true;
@@ -33,6 +34,9 @@ function App() {
           <div className="row">
             {condicional ? <Pokebola/> : <p>Carregando</p>}
           </div>
+        </div>
+        <div className="row">
+          <Pokedex />
         </div>
       </div>
     </div>

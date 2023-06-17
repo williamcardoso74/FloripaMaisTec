@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Button from "./Button";
 
 function Counter({isLoading}) {
+
   const [conta, setConta] = useState(0);
+  const prevConta = useRef()
+
+
+
+  console.log(prevConta)
 
   const updateConta = (num) => {
     setConta(conta + num);
@@ -15,6 +21,28 @@ function Counter({isLoading}) {
   if(isLoading) {
     return <p>... Carregando</p>
   }
+
+  //Genérico
+  useEffect(() => {
+    console.log("Genérico")
+    prevConta.current = conta
+  })
+
+  // fases 2
+  useEffect(() => {
+    console.log('Montagem')
+  },[]);
+
+  // fase 3
+  useEffect(() => {
+    //console.log(conta)
+    console.log(prevConta)
+  }, [conta]);
+
+  // fase 4
+  useEffect(() => {
+    return () => console.log("Desmontagem")
+  }, []);
 
   return (
     <div className="text-center">

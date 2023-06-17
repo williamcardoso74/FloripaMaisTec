@@ -10,7 +10,7 @@ function Form({ botao, num_botao, legenda_input, tipo_input }) {
           <Input
             type={tipo_input}
             className="mb-1"
-            txt_placeHolder={legenda_input}
+            legenda={legenda_input}
           />
         </div>
         

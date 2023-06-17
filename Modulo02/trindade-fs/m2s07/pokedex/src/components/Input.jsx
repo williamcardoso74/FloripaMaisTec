@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Input({txt_placeHolder}) {
+function Input({legenda, tipo}) {
 
     function imprimirInput(e) {
         console.log(e.target.value)
@@ -10,7 +10,7 @@ function Input({txt_placeHolder}) {
         
         <div>
             <label className="m-1" htmlFor="Input"></label>
-            <input type="text" placeholder={txt_placeHolder} onChange={imprimirInput}/>
+            <input type={tipo} placeholder={legenda} onChange={imprimirInput}/>
         </div>
         
      );
