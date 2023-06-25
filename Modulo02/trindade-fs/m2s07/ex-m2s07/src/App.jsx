@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Header from './Components/Header';
+import UserSignUp from './Components/UserSignUp';
+import UserCard from './Components/UserCard';
+import { UserProvider } from './Contexts/UserContext';
 
 import './App.css'
 
-function App() {
+function App(lista) {
   
   return (
-    <>
-      <Header/>
-    </>
+    <UserProvider>
+      <Header/><br></br>
+      <UserSignUp/>
+    </UserProvider>
   )
 }
 
