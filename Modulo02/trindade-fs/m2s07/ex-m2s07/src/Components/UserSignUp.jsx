@@ -5,19 +5,19 @@ import { UserContext } from '../Contexts/UserContext';
 const UserSignUp = () => {
 
   const { formData, setFormData } = useContext(UserContext)
-  const dataRef = useRef(formData);
+  
+  //const dataRef = useRef(formData);
 
   const handleInput = (e) => {
-    e.preventDefault()
-    const {value} = e.target
-    dataRef.current = value;
-  }
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
   
 const handleForm = (e) => {
     e.preventDefault();
 
-    setFormData((dataRef))
-
+    //setFormData((dataRef))
+    
     console.log(formData);
   }
 
@@ -28,28 +28,28 @@ const handleForm = (e) => {
           <label htmlFor="Nickname">Nickname</label>
           <input
             type="text"
-            value={nickname}
+            value={formData.nickname}
             onChange={handleInput}
           />
 
           <label htmlFor="Idade">Idade</label>
           <input
             type="number"
-            value={idade}
+            value={formData.idade}
             onChange={handleInput}
           />
 
           <label htmlFor="E-mail">E-mail</label>
           <input
             type="email"
-            value={email}
+            value={formData.email}
             onChange={handleInput}
           />
 
           <label htmlFor="Senha">Senha</label>
           <input
             type="password"
-            value={password}
+            value={formData.password}
             onChange={handleInput}
           />
 
