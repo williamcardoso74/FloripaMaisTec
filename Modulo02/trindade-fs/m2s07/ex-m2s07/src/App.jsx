@@ -7,15 +7,14 @@ import { UserProvider, UserContext } from './Contexts/UserContext';
 
 import './App.css'
 
-function App() {
+const App = () => {
 
-  const { formData, setFormData } = useContext(UserContext)
-  
   return (
-    <UserContext>
+    <UserProvider>
       {/* <Header/><br></br> */}
       <UserSignUp/>
-    </UserContext>
+      <UserCard/>
+    </UserProvider>
   )
 }
 
