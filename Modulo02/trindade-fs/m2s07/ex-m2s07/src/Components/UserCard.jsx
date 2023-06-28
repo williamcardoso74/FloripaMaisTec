@@ -1,17 +1,17 @@
 import React from 'react';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { UserContext } from '../Contexts/UserContext';
 
 const UserCard = () => {
-    const { formData } = useContext(UserContext)
+    const { userList } = useContext(UserContext)
 
     return (
         <>
         <div className="card">
-            <h2>Nickname: {formData.nickname}</h2>
-            <p>idade: {formData.idade}</p>
-            <p>email: {formData.email}</p>
-            <p>senha: {formData.password}</p>       
+            <h2>Nickname: {userList[0]?.nickname}</h2>
+            <p>idade: {userList[0]?.idade}</p>
+            <p>email: {userList[0]?.email}</p>
+            <p>senha: {userList[0]?.password}</p>       
         </div>
         </>
         
