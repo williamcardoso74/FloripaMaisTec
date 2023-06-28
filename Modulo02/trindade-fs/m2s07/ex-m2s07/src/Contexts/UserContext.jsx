@@ -15,6 +15,8 @@ export const UserProvider = ({ children }) => {
         idade: '',
         email: '',
         password: '',
+        likes: 0,
+        dislikes: 0,
     });
 
     const [ userList, setUserList ] = useState([])

@@ -1,24 +1,22 @@
-import React from 'react';
-import { useContext } from 'react';
-import { UserContext } from '../Contexts/UserContext';
+import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../Contexts/UserContext";
 
 const UserCard = () => {
-    const { userList } = useContext(UserContext)
+  const { userList } = useContext(UserContext);
 
-    return (
-        <>
-        <div className="card">
-            <h2>Nickname: {userList[0]?.nickname}</h2>
-            <p>idade: {userList[0]?.idade}</p>
-            <p>email: {userList[0]?.email}</p>
-            <p>senha: {userList[0]?.password}</p>       
+  return (
+    <>
+      {userList.map((user, index) => (
+        <div className="card" key={index}>
+          <p>Nickname: {user.nickname}</p>
+          <p>Idade: {user.idade}</p>
+          <p>Email: {user.email}</p>
+          <p>Senha: {user.password}</p>
         </div>
-        </>
-        
-    );
-}
-
-    
-
+      ))}
+    </>
+  );
+};
 
 export default UserCard;
